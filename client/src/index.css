@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8f9fa;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.content-container {
+  padding: 1.5rem;
+}
+
+.sidebar {
+  min-height: calc(100vh - 56px);
+  background-color: #343a40;
+  color: white;
+}
+
+.sidebar .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sidebar .nav-link:hover {
+  color: #fff;
+}
+
+.sidebar .nav-link.active {
+  color: #fff;
+  background-color: #495057;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.card {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  margin-bottom: 1.5rem;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  font-weight: 500;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  font-weight: 500;
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon svg {
+  margin-right: 0.25rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.text-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calculator-card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.calculator-header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+.calculator-body {
+  padding: 1.5rem;
+}
