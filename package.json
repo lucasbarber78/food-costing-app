@@ -1,0 +1,29 @@
+{
+  "name": "food-costing-app",
+  "version": "1.0.0",
+  "description": "A comprehensive application for food measurement conversion, recipe costing, and purchasing calculations",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/src/index.js",
+    "client": "cd client && npm start",
+    "server": "cd server && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "db:init": "cd server && npm run db:init",
+    "db:seed": "cd server && npm run db:seed"
+  },
+  "dependencies": {
+    "concurrently": "^8.0.1"
+  },
+  "keywords": [
+    "food",
+    "costing",
+    "recipe",
+    "inventory",
+    "yield",
+    "culinary"
+  ],
+  "author": "",
+  "license": "MIT"
+}
