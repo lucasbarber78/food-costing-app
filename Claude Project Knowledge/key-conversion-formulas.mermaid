@@ -1,0 +1,33 @@
+flowchart TD
+    subgraph "CONVERSION & PURCHASING FORMULAS"
+        A1[Amount Served\nAS] --> |"÷ Yield %"| B1[Amount Purchased\nAP]
+        B1 --> |"× Yield %"| A1
+        C1[Static Food\nAS] --> |"× Weight per Measure"| D1[Amount Purchased\nAP]
+        E1[Portions Needed] --> |"÷ Pieces per Purchase Unit"| F1[Purchase Units Needed]
+    end
+    
+    subgraph "COSTING FORMULAS"
+        A2[Purchase Cost] --> |"÷ Portion Count"| B2[Cost per Portion]
+        C2[Purchase Cost per lb.] --> |"÷ Yield %"| D2[Cost per Servable Pound]
+        E2[Recipe Ingredient Costs] --> |"Sum"| F2[Total Recipe Cost]
+        F2 --> |"÷ Portions"| G2[Cost per Portion]
+    end
+    
+    subgraph "YIELD CALCULATIONS"
+        A3[Trimmed/Cooked Weight\nAS] --> |"÷ Raw Weight\nAP"| B3[Yield %]
+        B3 --> |"× 100"| C3[Yield Percentage]
+        D3[Cooking Yield %] --> |"> 100%\nVolume/Weight Increases"| E3[Cooked Rice, Pasta, etc.]
+        F3[Trimming Yield %] --> |"< 100%\nTrimming Reduces Weight"| G3[Vegetables, Meats, etc.]
+    end
+    
+    subgraph "WEIGHT-VOLUME CONVERSIONS"
+        A4[Weight\nPounds/Ounces] --> |"Conversion Factor"| B4[Volume\nCups/Quarts]
+        B4 --> |"Conversion Factor"| A4
+        C4[Volume of Ingredient] --> |"× Density"| D4[Weight of Ingredient]
+    end
+    
+    classDef formula fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef result fill:#e1f5fe,stroke:#01579b,stroke-width:1px;
+    
+    class A1,C1,E1,A2,C2,E2,A3,D3,F3,A4,C4 formula;
+    class B1,D1,F1,B2,D2,F2,G2,B3,C3,E3,G3,B4,D4 result;

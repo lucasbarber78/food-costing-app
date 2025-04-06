@@ -1,0 +1,65 @@
+flowchart TD
+    subgraph Client["Client Application"]
+        UI["React UI Components"]
+        API_Service["API Service Layer"]
+        StateManagement["State Management"]
+    end
+
+    subgraph Server["Backend Server"]
+        API["Express API"]
+        subgraph BusinessLogic["Business Logic"]
+            ConversionEngine["Conversion Engine"]
+            RecipeManager["Recipe Manager"]
+            InventoryManager["Inventory Manager"]
+            AuthService["Authentication Service"]
+        end
+        DataAccess["Data Access Layer"]
+    end
+
+    subgraph Database["PostgreSQL Database"]
+        Items["Items & Categories"]
+        Conversions["Units & Conversions"]
+        Recipes["Recipes & Ingredients"]
+        Inventory["Inventory & Locations"]
+        Users["Users & Authentication"]
+    end
+
+    UI <--> StateManagement
+    StateManagement <--> API_Service
+    API_Service <--> API
+    
+    API <--> AuthService
+    API <--> ConversionEngine
+    API <--> RecipeManager
+    API <--> InventoryManager
+    
+    AuthService <--> DataAccess
+    ConversionEngine <--> DataAccess
+    RecipeManager <--> DataAccess
+    InventoryManager <--> DataAccess
+    
+    DataAccess <--> Items
+    DataAccess <--> Conversions
+    DataAccess <--> Recipes
+    DataAccess <--> Inventory
+    DataAccess <--> Users
+
+    subgraph ExternalSystems["External Systems"]
+        CSV_Import["CSV Import/Export"]
+        POS["Point of Sale Integration"]
+        Accounting["Accounting System"]
+    end
+
+    CSV_Import <--> API
+    POS <--> API
+    Accounting <--> API
+
+    classDef clientNode fill:#e1f5fe,stroke:#01579b
+    classDef serverNode fill:#e8f5e9,stroke:#1b5e20
+    classDef dbNode fill:#fff3e0,stroke:#e65100
+    classDef externalNode fill:#f3e5f5,stroke:#4a148c
+    
+    class Client,UI,API_Service,StateManagement clientNode
+    class Server,API,BusinessLogic,ConversionEngine,RecipeManager,InventoryManager,AuthService,DataAccess serverNode
+    class Database,Items,Conversions,Recipes,Inventory,Users dbNode
+    class ExternalSystems,CSV_Import,POS,Accounting externalNode
